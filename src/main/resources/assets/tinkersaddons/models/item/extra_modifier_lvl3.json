@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "tinkersaddons:items/moss_ball"
+        "layer0": "tinkersaddons:items/extra_modifier_lvl3"
     },
     "display": {
         "thirdperson": {

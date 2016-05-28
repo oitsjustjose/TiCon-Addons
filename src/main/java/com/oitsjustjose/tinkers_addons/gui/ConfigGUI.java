@@ -1,30 +1,22 @@
 package com.oitsjustjose.tinkers_addons.gui;
 
-import java.util.List;
 import java.util.Set;
 
-import com.google.common.collect.Lists;
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.IModGuiFactory;
 import net.minecraftforge.fml.client.config.GuiConfig;
-import net.minecraftforge.fml.client.config.IConfigElement;
 
 public class ConfigGUI extends GuiConfig
 {
 	public ConfigGUI(GuiScreen guiScreen)
 	{
-		super(guiScreen, getConfigElements(), Lib.MODID, false, true, GuiConfig.getAbridgedConfigPath(TinkersAddons.modConfig.config.toString()));
-	}
-
-	private static List<IConfigElement> getConfigElements()
-	{
-		List<IConfigElement> list = Lists.newArrayList();
-
-		return list;
+		super(guiScreen, new ConfigElement(TinkersAddons.modConfig.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), Lib.MODID, false, true, GuiConfig.getAbridgedConfigPath(TinkersAddons.modConfig.config.toString()));
 	}
 
 	public static class GUIFactory implements IModGuiFactory
