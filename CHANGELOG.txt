@@ -1,0 +1,6 @@
+1.0:
+Initial Release:
+-Added: Auto-Repair Modifier
+-Added: Ability to increase modifiers like older Tinkers' Versions
+-Added: Moss Ball and Bonus Tool Modifiers for all 3 tiers
+-Added: Config options to disable any or all modifiers
