@@ -1,0 +1,6 @@
+#Items
+item.TinkersAddons.moss_ball.name=Moss Ball
+
+#Modifiers
+modifier.auto-repair.name=Auto-Repair
+modifier.auto-repair.desc=§oFree repair...§r\n..You didn't realize you missed this, did you?
