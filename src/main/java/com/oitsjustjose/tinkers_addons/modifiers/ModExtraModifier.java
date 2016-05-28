@@ -14,10 +14,10 @@ public class ModExtraModifier extends Modifier
 	public ModExtraModifier(int level)
 	{
 		super("bonus-modifier_" + level);
-	    this.addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this, 0x8cf4e2));
-	    this.addItem(new ItemStack(TinkersAddons.modItems.materials, 1, level), 1, 1);
+		this.addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this, 0x8cf4e2));
+		this.addItem(new ItemStack(TinkersAddons.modItems.materials, 1, level), 1, 1);
 	}
-	
+
 	@Override
 	public boolean isHidden()
 	{
@@ -27,9 +27,9 @@ public class ModExtraModifier extends Modifier
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
-	    ToolNBT data = TagUtil.getToolStats(rootCompound);
-	    data.modifiers++;
+		ToolNBT data = TagUtil.getToolStats(rootCompound);
+		data.modifiers++;
 
-	    TagUtil.setToolTag(rootCompound, data.get());
+		TagUtil.setToolTag(rootCompound, data.get());
 	}
 }

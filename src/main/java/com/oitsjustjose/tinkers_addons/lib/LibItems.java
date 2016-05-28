@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 public class LibItems
 {
 	public Item materials;
+
 	public LibItems()
 	{
 		materials = new ItemModMaterial();

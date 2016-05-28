@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 public class Log
 {
 	private static Logger LOGGER = LogManager.getLogger(Lib.MODID);
-	
+
 	public static void warn(String msg)
 	{
 		LOGGER.warn(msg);

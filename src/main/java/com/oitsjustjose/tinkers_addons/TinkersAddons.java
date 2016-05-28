@@ -33,11 +33,11 @@ public class TinkersAddons
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		CommonProxy.preInit();
-		
+
 		modConfig = new Config(event.getSuggestedConfigurationFile());
 		modItems = new LibItems();
 		modModifiers = new LibModifiers();
-		
+
 		MinecraftForge.EVENT_BUS.register(modConfig);
 		MinecraftForge.EVENT_BUS.register(new ModAutoRepair());
 	}
