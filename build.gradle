@@ -21,8 +21,8 @@ repositories {
 }
 
 version = "1.0"
-group= "com.oitsjustjose.TiCon_Addons"
-archivesBaseName = "TiCon Addons-1.8.9"
+group= "com.oitsjustjose.tinkers_addons"
+archivesBaseName = "Tinkers' Addons-1.8.9"
 
 minecraft {
     version = "1.8.9-11.15.1.1902-1.8.9"
@@ -36,7 +36,6 @@ minecraft {
     replace "@VERSION@", project.version
 	
     mappings = "stable_20"
-	
 }
 
 dependencies {
