@@ -43,15 +43,19 @@ public class ModAutoRepair extends Modifier
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onUpdate(PlayerEvent event)
 	{
-		if (event.entityPlayer == null)
+		if (event.getEntityPlayer() == null)
 			return;
 
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 		ArrayList<ItemStack> tinkersTools = new ArrayList<ItemStack>();
 		int autoRepairLevel = 0;
 		for (ItemStack iterStack : player.inventory.mainInventory)
 			if (iterStack != null && iterStack.getItem() instanceof ToolCore)
 				tinkersTools.add(iterStack);
+
+		// Works to include items held in the second hand	
+		if (player.getHeldItemOffhand() != null && player.getHeldItemOffhand().getItem() instanceof ToolCore)
+			tinkersTools.add(player.getHeldItemOffhand());
 
 		for (ItemStack iterStack : tinkersTools)
 		{
@@ -73,7 +77,7 @@ public class ModAutoRepair extends Modifier
 			// Calculates that the last repair time stored minus the current time is less than or equal to 30 seconds divided by auto-repair level
 			if ((System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)) && autoRepairLevel > 0)
 			{
-				ToolHelper.healTool(iterStack, autoRepairLevel, event.entityPlayer);
+				ToolHelper.healTool(iterStack, autoRepairLevel, player);
 				tag.setLong(Lib.TAG_AUTO_REPAIR_COOLDOWN, System.currentTimeMillis());
 			}
 		}

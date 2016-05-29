@@ -26,20 +26,20 @@ public class Config
 	{
 		Property property;
 
-		property = config.get(config.CATEGORY_GENERAL, "Enable Auto-Repair", true).setRequiresMcRestart(true);
-		property.comment = "Allows you to enable or disable the auto-repair trait";
+		property = config.get(Configuration.CATEGORY_GENERAL, "Enable Auto-Repair", true).setRequiresMcRestart(true);
+		property.setComment("Allows you to enable or disable the auto-repair trait");
 		enableAutoRepair = property.getBoolean();
 
-		property = config.get(config.CATEGORY_GENERAL, "Enable 1st bonus modifier mod for tools", true).setRequiresMcRestart(true);
-		property.comment = "Re-adds the diamond + gold block recipe to increase modifiers on a tool if enabled";
+		property = config.get(Configuration.CATEGORY_GENERAL, "Enable 1st bonus modifier mod for tools", true).setRequiresMcRestart(true);
+		property.setComment("Re-adds the diamond + gold block recipe to increase modifiers on a tool if enabled");
 		enableExtraModifierLvl1 = property.getBoolean();
 
-		property = config.get(config.CATEGORY_GENERAL, "Enable 2nd bonus modifier mod for tools", true).setRequiresMcRestart(true);
-		property.comment = "Re-adds the diamond block + gold apple recipe to increase modifiers on a tool if enabled";
+		property = config.get(Configuration.CATEGORY_GENERAL, "Enable 2nd bonus modifier mod for tools", true).setRequiresMcRestart(true);
+		property.setComment("Re-adds the diamond block + gold apple recipe to increase modifiers on a tool if enabled");
 		enableExtraModifierLvl2 = property.getBoolean();
 
-		property = config.get(config.CATEGORY_GENERAL, "Enable 3rd bonus modifier mod for tools", true).setRequiresMcRestart(true);
-		property.comment = "Re-adds the nether star recipe to increase modifiers on a tool if enabled";
+		property = config.get(Configuration.CATEGORY_GENERAL, "Enable 3rd bonus modifier mod for tools", true).setRequiresMcRestart(true);
+		property.setComment("Re-adds the nether star recipe to increase modifiers on a tool if enabled");
 		enableExtraModifierLvl3 = property.getBoolean();
 
 		if (config.hasChanged())
@@ -49,7 +49,7 @@ public class Config
 	@SubscribeEvent
 	public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
 	{
-		if (event.modID.equalsIgnoreCase(Lib.MODID))
+		if (event.getModID().equalsIgnoreCase(Lib.MODID))
 			initialize();
 	}
 }
