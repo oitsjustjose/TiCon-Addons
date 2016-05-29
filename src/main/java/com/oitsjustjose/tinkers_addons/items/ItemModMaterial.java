@@ -25,7 +25,7 @@ public class ItemModMaterial extends Item
 		this.setCreativeTab(TinkerRegistry.tabGeneral);
 		GameRegistry.registerItem(this, "modifier_item");
 		registerRecipes();
-		Lib.add(this);
+		Lib.MOD_ITEMS.add(this);
 	}
 
 	@Override
