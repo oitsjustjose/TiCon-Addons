@@ -53,7 +53,7 @@ public class ModAutoRepair extends Modifier
 			if (iterStack != null && iterStack.getItem() instanceof ToolCore)
 				tinkersTools.add(iterStack);
 
-		// Works to include items held in the second hand	
+		// Works to include items held in the second hand
 		if (player.getHeldItemOffhand() != null && player.getHeldItemOffhand().getItem() instanceof ToolCore)
 			tinkersTools.add(player.getHeldItemOffhand());
 
@@ -90,8 +90,9 @@ public class ModAutoRepair extends Modifier
 		if (player.dimension == -1)
 			return 10000 + rand;
 		if (world.canSeeSky(player.getPosition()) && !world.isRaining())
-			return 12500 + rand;
-		else
-			return 15000 + rand;
+			if (world.getWorldTime() >= 0 && world.getWorldTime() <= 13000)
+				return 12500 + rand;
+
+		return 15000 + rand;
 	}
 }
