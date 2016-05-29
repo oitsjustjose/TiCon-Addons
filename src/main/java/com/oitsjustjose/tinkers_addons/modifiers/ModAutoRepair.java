@@ -74,7 +74,7 @@ public class ModAutoRepair extends Modifier
 			}
 
 			long lastRepairTime = tag.getLong(Lib.TAG_AUTO_REPAIR_COOLDOWN);
-			// Calculates that the last repair time stored minus the current time is less than or equal to 30 seconds divided by auto-repair level
+
 			if ((System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)) && autoRepairLevel > 0)
 			{
 				ToolHelper.healTool(iterStack, autoRepairLevel, player);
