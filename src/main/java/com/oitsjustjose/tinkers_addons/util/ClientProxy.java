@@ -31,11 +31,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.client.model.ModifierModelLoader;
 
 public class ClientProxy extends CommonProxy
 {
 	static CreativeTabs tab = TinkerRegistry.tabParts;
 	static String MODID = Lib.MODID;
+	static ModifierModelLoader modifierLoader;
 
 	/**
 	 * Grabs all the items from my stored arraylist and registers them Super convenient, I'd suggest doing similar things, and adding a similar block variant if you need it (I didn't)

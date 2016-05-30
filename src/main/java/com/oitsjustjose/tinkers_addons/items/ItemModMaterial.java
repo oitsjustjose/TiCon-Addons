@@ -9,6 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -23,7 +24,7 @@ public class ItemModMaterial extends Item
 	{
 		this.setHasSubtypes(true);
 		this.setCreativeTab(TinkerRegistry.tabGeneral);
-		GameRegistry.registerItem(this, "modifier_item");
+		GameRegistry.register(this, new ResourceLocation(Lib.MODID.toLowerCase(), "modifier_item"));
 		registerRecipes();
 		Lib.MOD_ITEMS.add(this);
 	}
@@ -42,7 +43,7 @@ public class ItemModMaterial extends Item
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list)
+	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list)
 	{
 		for (int i = 0; i < materials.length; i++)
 			list.add(new ItemStack(item, 1, i));
