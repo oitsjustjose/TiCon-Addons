@@ -48,7 +48,7 @@ public class ModAutoRepair extends Modifier
 
 		EntityPlayer player = event.getEntityPlayer();
 		ArrayList<ItemStack> tinkersTools = new ArrayList<ItemStack>();
-		int autoRepairLevel = 0;
+		int autoRepairLevel;
 		for (ItemStack iterStack : player.inventory.mainInventory)
 			if (iterStack != null && iterStack.getItem() instanceof ToolCore)
 				tinkersTools.add(iterStack);
@@ -59,6 +59,7 @@ public class ModAutoRepair extends Modifier
 
 		for (ItemStack iterStack : tinkersTools)
 		{
+			autoRepairLevel = 0;
 			NBTTagCompound tag = TagUtil.getToolTag(iterStack.getTagCompound());
 			NBTTagList tagList = TagUtil.getModifiersTagList(iterStack);
 			for (int i = 0; i < tagList.tagCount(); i++)
@@ -75,7 +76,7 @@ public class ModAutoRepair extends Modifier
 
 			long lastRepairTime = tag.getLong(Lib.TAG_AUTO_REPAIR_COOLDOWN);
 
-			if ((System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)) && autoRepairLevel > 0)
+			if (autoRepairLevel > 0 && (System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)))
 			{
 				ToolHelper.healTool(iterStack, autoRepairLevel, player);
 				tag.setLong(Lib.TAG_AUTO_REPAIR_COOLDOWN, System.currentTimeMillis());
