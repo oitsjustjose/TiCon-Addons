@@ -51,9 +51,9 @@ public class ItemModMaterial extends Item
 
 	void registerRecipes()
 	{
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 0), Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 0), Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE, Blocks.MOSSY_COBBLESTONE));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 1), "gemDiamond", "blockGold"));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 2), "blockDiamond", new ItemStack(Items.golden_apple, 1, 1)));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 3), Items.nether_star, new ItemStack(Items.skull, 1, Short.MAX_VALUE)));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 2), "blockDiamond", new ItemStack(Items.GOLDEN_APPLE, 1, 1)));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 3), Items.NETHER_STAR, new ItemStack(Items.SKULL, 1, Short.MAX_VALUE)));
 	}
 }
