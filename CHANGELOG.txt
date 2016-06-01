@@ -1,3 +1,5 @@
+1.0.1:
+-Fixed: Auto-Repair Working on Multiple Tools Simultaneously
 1.0:
 Initial Release:
 -Added: Auto-Repair Modifier
