@@ -9,4 +9,9 @@ modifier.auto-repair.name=Auto-Repair
 modifier.bonus-modifier_1.name=Diamond Bonus Modifier
 modifier.bonus-modifier_2.name=Notch Apple Bonus Modifier
 modifier.bonus-modifier_3.name=Nether Star Bonus Modifier
-modifier.auto-repair.desc=§oFree Repair Like the Old Days §r\nYou didn't realize you missed this, did you?
+modifier.auto-repair.desc=§oBringing life back where you wouldn't expect §r\nThis moss seems to enjoy sunny days, but the musty nether is nice too..
+modifier.occult.name=Occult
+modifier.occult.desc=§oInfused with Vis §r\n The power of Praecantic Thaumium boosts your modifier count by 1 (max 1 per tool).
+
+#Materials
+material.thaumium.name=Thaumium

@@ -3,7 +3,7 @@ package com.oitsjustjose.tinkers_addons;
 import com.oitsjustjose.tinkers_addons.lib.Config;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 import com.oitsjustjose.tinkers_addons.lib.LibItems;
-import com.oitsjustjose.tinkers_addons.lib.LibModifiers;
+import com.oitsjustjose.tinkers_addons.lib.LibTinker;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
 import com.oitsjustjose.tinkers_addons.util.ClientProxy;
 import com.oitsjustjose.tinkers_addons.util.CommonProxy;
@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -27,7 +26,7 @@ public class TinkersAddons
 	public static CommonProxy proxy;
 	public static Config modConfig;
 	public static LibItems modItems;
-	public static LibModifiers modModifiers;
+	public static LibTinker modTinker;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -36,16 +35,10 @@ public class TinkersAddons
 
 		modConfig = new Config(event.getSuggestedConfigurationFile());
 		modItems = new LibItems();
-		modModifiers = new LibModifiers();
+		modTinker = new LibTinker();
 
 		MinecraftForge.EVENT_BUS.register(modConfig);
 		MinecraftForge.EVENT_BUS.register(new ModAutoRepair());
-	}
-
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-
 	}
 
 	@EventHandler
@@ -54,5 +47,4 @@ public class TinkersAddons
 		if (event.getSide().isClient())
 			ClientProxy.init();
 	}
-
 }

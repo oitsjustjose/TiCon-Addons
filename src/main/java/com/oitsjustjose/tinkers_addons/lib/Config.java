@@ -15,6 +15,7 @@ public class Config
 	public boolean enableExtraModifierLvl1;
 	public boolean enableExtraModifierLvl2;
 	public boolean enableExtraModifierLvl3;
+	public boolean enableThaumiumToolMaterial;
 
 	public Config(File file)
 	{
@@ -42,6 +43,10 @@ public class Config
 		property.comment = "Re-adds the nether star recipe to increase modifiers on a tool if enabled";
 		enableExtraModifierLvl3 = property.getBoolean();
 
+		property = config.get(config.CATEGORY_GENERAL, "Enable Thaumium as a Tool Material", true).setRequiresMcRestart(true);
+		property.comment = "Allows tool parts to be made out of Molten Thaumium - only works if ThaumCraft is installed";
+		enableThaumiumToolMaterial = property.getBoolean();
+		
 		if (config.hasChanged())
 			config.save();
 	}

@@ -14,7 +14,7 @@ public class ModExtraModifier extends Modifier
 	public ModExtraModifier(int level)
 	{
 		super("bonus-modifier_" + level);
-		this.addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this, 0x8cf4e2));
+		this.addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this, 0xFFFFFF));
 		this.addItem(new ItemStack(TinkersAddons.modItems.materials, 1, level), 1, 1);
 	}
 

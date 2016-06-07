@@ -2,6 +2,7 @@ package com.oitsjustjose.tinkers_addons.items;
 
 import java.util.List;
 
+import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -50,9 +51,13 @@ public class ItemModMaterial extends Item
 
 	void registerRecipes()
 	{
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 0), Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 1), "gemDiamond", "blockGold"));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 2), "blockDiamond", new ItemStack(Items.golden_apple, 1, 1)));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 3), Items.nether_star, new ItemStack(Items.skull, 1, Short.MAX_VALUE)));
+		if (TinkersAddons.modConfig.enableAutoRepair)
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 0), Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone, Blocks.mossy_cobblestone));
+		if (TinkersAddons.modConfig.enableExtraModifierLvl1)
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 1), "gemDiamond", "blockGold"));
+		if (TinkersAddons.modConfig.enableExtraModifierLvl2)
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 2), "blockDiamond", new ItemStack(Items.golden_apple, 1, 1)));
+		if (TinkersAddons.modConfig.enableExtraModifierLvl3)
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 1, 3), Items.nether_star, new ItemStack(Items.skull, 1, Short.MAX_VALUE)));
 	}
 }

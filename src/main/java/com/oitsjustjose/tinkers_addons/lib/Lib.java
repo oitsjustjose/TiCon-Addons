@@ -15,7 +15,7 @@ public class Lib
 
 	public static final String TAG_AUTO_REPAIR = "Auto-Repair";
 	public static final String TAG_AUTO_REPAIR_COOLDOWN = "Last Auto-Repair";
-	public static final String TAG_REDSTONE_FLUX = "Redstone Flux";
+	public static final String TAG_THAUMIUM = "thaumium_count";
 	
 	public static final ArrayList<Item> MOD_ITEMS = new ArrayList<Item>();
 }
