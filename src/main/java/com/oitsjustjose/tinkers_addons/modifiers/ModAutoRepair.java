@@ -76,7 +76,7 @@ public class ModAutoRepair extends Modifier
 
 			long lastRepairTime = tag.getLong(Lib.TAG_AUTO_REPAIR_COOLDOWN);
 
-			if (autoRepairLevel > 0 && (System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)))
+			if (autoRepairLevel > 0 && (System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)) && !player.isSwingInProgress)
 			{
 				ToolHelper.healTool(iterStack, autoRepairLevel, player);
 				tag.setLong(Lib.TAG_AUTO_REPAIR_COOLDOWN, System.currentTimeMillis());
