@@ -1,9 +1,9 @@
 package com.oitsjustjose.tinkers_addons.lib;
 
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
-import com.oitsjustjose.tinkers_addons.materials.TraitOccult;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
 import com.oitsjustjose.tinkers_addons.modifiers.ModExtraModifier;
+import com.oitsjustjose.tinkers_addons.modifiers.TraitOccult;
 import com.oitsjustjose.tinkers_addons.util.InterModUtils;
 
 import net.minecraft.init.Blocks;

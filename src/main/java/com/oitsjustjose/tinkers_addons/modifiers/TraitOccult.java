@@ -1,4 +1,4 @@
-package com.oitsjustjose.tinkers_addons.materials;
+package com.oitsjustjose.tinkers_addons.modifiers;
 
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
@@ -18,6 +18,8 @@ public class TraitOccult extends AbstractTrait
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag)
 	{
 		ToolNBT data = TagUtil.getToolStats(rootCompound);
+
+		// Increases the total modifiers by one only if it doesn't already have the tag that it's been done
 		if (!(rootCompound.getInteger(Lib.TAG_THAUMIUM) >= 1))
 		{
 			data.modifiers++;
