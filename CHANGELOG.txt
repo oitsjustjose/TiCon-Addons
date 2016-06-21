@@ -1,3 +1,6 @@
+1.0.2:
+-Fixed: Auto-Repair interrupting block break / item use
+-Added: Thaumium Material (for 1.8.9 only). Stats match vanilla Thaumcraft Tools, feature can be disabled, and adds one (and only one) extra modifier when  a part is made of it
 1.0.1:
 -Fixed: Auto-Repair Working on Multiple Tools Simultaneously
 1.0:
