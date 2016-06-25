@@ -1,3 +1,5 @@
+1.0.2a:
+-Fixed: Server-Side Crash with Thaumium Material
 1.0.2:
 -Fixed: Auto-Repair interrupting block break / item use
 -Added: Thaumium Material (for 1.8.9 only). Stats match vanilla Thaumcraft Tools, feature can be disabled, and adds one (and only one) extra modifier when  a part is made of it
