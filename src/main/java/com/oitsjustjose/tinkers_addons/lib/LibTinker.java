@@ -9,6 +9,8 @@ import com.oitsjustjose.tinkers_addons.util.InterModUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -60,7 +62,6 @@ public class LibTinker
 			thaumium.setShard(TinkerRegistry.getShard(thaumium));
 			TinkerRegistry.addMaterialStats(thaumium, new HeadMaterialStats(400, 5.00f, 3.50f, HarvestLevels.DIAMOND), new HandleMaterialStats(1.0f, 60), new ExtraMaterialStats(40));
 			TinkerRegistry.addMaterial(thaumium);
-			TinkersAddons.modTinker.thaumium.setRenderInfo((new MaterialRenderInfo.Metal(0x423665, 0.1f, 0.2f, 0f)));
 		}
 	}
 }

@@ -15,6 +15,9 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 
 @Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, acceptedMinecraftVersions = "1.8.9", dependencies = "required-after:tconstruct@[1.8.9-2.2.1,);" + "required-after:mantle@[1.8.9-0.9.0,)")
 public class TinkersAddons
@@ -45,6 +48,15 @@ public class TinkersAddons
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		if (event.getSide().isClient())
-			ClientProxy.init();
+		{
+			initClient();
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void initClient()
+	{
+		ClientProxy.init();
+		modTinker.thaumium.setRenderInfo((new MaterialRenderInfo.Metal(0x423665, 0.1f, 0.2f, 0f)));
 	}
 }
