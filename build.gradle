@@ -18,12 +18,12 @@ repositories {
   }
 }
 
-version = "1.0.2"
+version = "1.0.3"
 group= "com.oitsjustjose.tinkers_addons"
-archivesBaseName = "Tinkers' Addons-1.9.4"
+archivesBaseName = "Tinkers' Addons-1.10.x"
 
 minecraft {
-    version = "1.9.4-12.17.0.1937"
+    version = "1.10.2-12.18.0.2010"
 
 	if (file('../run').exists()){
 		runDir = "../run"
@@ -38,9 +38,9 @@ minecraft {
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.9.4:3.4.2.206"
-    deobfCompile "slimeknights.mantle:Mantle:1.9.4-0.10.1.jenkins142"
-    deobfCompile "slimeknights:TConstruct:1.9.4-2.3.1.jenkins229"
+	deobfCompile "mezz.jei:jei_1.10.2:3.7.5.227"
+    deobfCompile "slimeknights.mantle:Mantle:1.10-0.10.3.jenkins158"
+    deobfCompile "slimeknights:TConstruct:1.10-2.3.3a.jenkins289"
 }
 
 task deobfJar(type: Jar) {
