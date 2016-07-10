@@ -7,6 +7,7 @@ import com.oitsjustjose.tinkers_addons.lib.LibModifiers;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
 import com.oitsjustjose.tinkers_addons.util.ClientProxy;
 import com.oitsjustjose.tinkers_addons.util.CommonProxy;
+import com.oitsjustjose.tinkers_addons.util.ModRecipes;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -17,7 +18,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, acceptedMinecraftVersions = "1.9.4", dependencies = "required-after:tconstruct@[1.9.4-2.3.1,);" + "required-after:mantle@[1.9.4-0.10.1,)")
+@Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)")
 public class TinkersAddons
 {
 	@Instance(Lib.MODID)
@@ -28,6 +29,7 @@ public class TinkersAddons
 	public static Config modConfig;
 	public static LibItems modItems;
 	public static LibModifiers modModifiers;
+	public ModRecipes recipes;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -53,5 +55,6 @@ public class TinkersAddons
 	{
 		if (event.getSide().isClient())
 			ClientProxy.init();
+		recipes = new ModRecipes();
 	}
 }

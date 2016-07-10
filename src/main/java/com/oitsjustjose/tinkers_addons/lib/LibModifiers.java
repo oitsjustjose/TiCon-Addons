@@ -15,7 +15,7 @@ public class LibModifiers
 
 	public LibModifiers()
 	{
-		if (TinkersAddons.modConfig.enableAutoRepair)
+		if (TinkersAddons.modConfig.autoRepairRecipeType > 0)
 		{
 			auto_repair = new ModAutoRepair();
 		}
