@@ -3,10 +3,12 @@ item.TinkersAddons.AMELIORATION_KIT.name=Amelioration Kit
 item.TinkersAddons.EXTRA_MODIFIER_LVL1.name=Bonus Tool Modifier
 item.TinkersAddons.EXTRA_MODIFIER_LVL2.name=Bonus Tool Modifier
 item.TinkersAddons.EXTRA_MODIFIER_LVL3.name=Bonus Tool Modifier
+item.TinkersAddons.EXTRA_MODIFIER_LVL4.name=Bonus Tool Modifier
 
 #Modifiers
 modifier.auto-repair.name=Amelioration
-modifier.bonus-modifier_1.name=Diamond Bonus Modifier
-modifier.bonus-modifier_2.name=Notch Apple Bonus Modifier
-modifier.bonus-modifier_3.name=Nether Star Bonus Modifier
+modifier.bonus-modifier_1.name=Miner's Bonus Modifier
+modifier.bonus-modifier_2.name=Overpowered Bonus Modifier
+modifier.bonus-modifier_3.name=Wither Bonus Modifier
+modifier.bonus-modifier_4.name=Ender Bonus Modifier
 modifier.auto-repair.desc=§oAuto-Repair Like the Old Days §r\nYou didn't realize you missed this, did you?

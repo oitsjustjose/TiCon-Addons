@@ -40,10 +40,6 @@ public class ModRecipeAmelioration extends RecipesMapCloning
 						{
 							NBTTagCompound comp = temp.getTagCompound();
 							mending = comp.getTag("StoredEnchantments").toString().contains("id:70s");
-
-							if (!world.isRemote)
-								System.out.println(comp.getTag("StoredEnchantments").toString());
-
 						}
 					}
 					// Checks if the center item slot has mending on it

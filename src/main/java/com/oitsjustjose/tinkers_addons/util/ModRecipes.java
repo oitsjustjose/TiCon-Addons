@@ -10,6 +10,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModRecipes
@@ -47,6 +48,9 @@ public class ModRecipes
 		{
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TinkersAddons.modItems.materials, 1, 3), Items.NETHER_STAR, new ItemStack(Items.SKULL, 1, Short.MAX_VALUE)));
 		}
-
+		if (TinkersAddons.modConfig.enableExtraModifierLvl4)
+		{
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(TinkersAddons.modItems.materials, 4, 4), new Object[] { "PPP", "PEP", "PPP", 'P', Items.ENDER_PEARL, 'E', Blocks.DRAGON_EGG }));
+		}
 	}
 }

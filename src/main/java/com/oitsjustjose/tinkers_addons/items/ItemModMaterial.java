@@ -16,7 +16,7 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 
 public class ItemModMaterial extends Item
 {
-	String[] materials = new String[] { "AMELIORATION_KIT", "EXTRA_MODIFIER_LVL1", "EXTRA_MODIFIER_LVL2", "EXTRA_MODIFIER_LVL3" };
+	String[] materials = new String[] { "AMELIORATION_KIT", "EXTRA_MODIFIER_LVL1", "EXTRA_MODIFIER_LVL2", "EXTRA_MODIFIER_LVL3", "EXTRA_MODIFIER_LVL4" };
 
 	public ItemModMaterial()
 	{
@@ -29,7 +29,7 @@ public class ItemModMaterial extends Item
 	@Override
 	public boolean hasEffect(ItemStack itemstack)
 	{
-		return (itemstack.getItemDamage() == 0 && TinkersAddons.modConfig.autoRepairRecipeType == 2) ? true : itemstack.getItemDamage() >= 2 ? true : false;
+		return (itemstack.getItemDamage() == 0 && TinkersAddons.modConfig.autoRepairRecipeType == 2) ? true : itemstack.getItemDamage() == 4 ? false : itemstack.getItemDamage() >= 2 ? true : false;
 	}
 
 	@Override

@@ -12,6 +12,8 @@ public class LibModifiers
 	public Modifier extra_modifier_lvl1;
 	public Modifier extra_modifier_lvl2;
 	public Modifier extra_modifier_lvl3;
+	public Modifier extra_modifier_lvl4;
+
 
 	public LibModifiers()
 	{
@@ -30,6 +32,10 @@ public class LibModifiers
 		if (TinkersAddons.modConfig.enableExtraModifierLvl3)
 		{
 			extra_modifier_lvl3 = new ModExtraModifier(3);
+		}
+		if(TinkersAddons.modConfig.enableExtraModifierLvl4)
+		{
+			extra_modifier_lvl4 = new ModExtraModifier(4);
 		}
 	}
 }

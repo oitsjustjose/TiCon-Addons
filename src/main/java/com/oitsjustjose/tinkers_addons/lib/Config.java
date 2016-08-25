@@ -15,6 +15,7 @@ public class Config
 	public boolean enableExtraModifierLvl1;
 	public boolean enableExtraModifierLvl2;
 	public boolean enableExtraModifierLvl3;
+	public boolean enableExtraModifierLvl4;
 
 	public Config(File file)
 	{
@@ -42,6 +43,10 @@ public class Config
 		property.setComment("Re-adds the nether star recipe to increase modifiers on a tool if enabled");
 		enableExtraModifierLvl3 = property.getBoolean();
 
+		property = config.get(Configuration.CATEGORY_GENERAL, "Enable 4th bonus modifier mod for tools", true).setRequiresMcRestart(true);
+		property.setComment("Adds a new Dragon Egg based Bonus Modifier if enabled");
+		enableExtraModifierLvl4 = property.getBoolean();
+		
 		if (config.hasChanged())
 			config.save();
 	}

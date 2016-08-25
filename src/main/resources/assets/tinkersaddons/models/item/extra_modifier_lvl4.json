@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "tinkersaddons:items/extra_modifier_lvl4"
+    }
+}
