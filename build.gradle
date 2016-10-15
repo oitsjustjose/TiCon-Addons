@@ -23,7 +23,7 @@ group= "com.oitsjustjose.tinkers_addons"
 archivesBaseName = "Tinkers' Addons-1.10.x"
 
 minecraft {
-    version = "1.10.2-12.18.0.2010"
+    version = "1.10.2-12.18.2.2102"
 
 	if (file('../run').exists()){
 		runDir = "../run"
