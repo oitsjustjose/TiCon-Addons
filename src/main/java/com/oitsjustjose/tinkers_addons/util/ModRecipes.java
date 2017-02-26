@@ -1,41 +1,28 @@
 package com.oitsjustjose.tinkers_addons.util;
 
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
-import com.oitsjustjose.tinkers_addons.lib.Lib;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.RecipeSorter;
-import net.minecraftforge.oredict.RecipeSorter.Category;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+import slimeknights.tconstruct.shared.TinkerCommons;
 
 public class ModRecipes
 {
 	public ModRecipes()
 	{
-		registerAutoRepairRecipe();
 		registerBonusModRecipes();
-	}
-
-	public void registerAutoRepairRecipe()
-	{
-		if (TinkersAddons.modConfig.autoRepairRecipeType == 1)
-		{
-			GameRegistry.addRecipe(new ItemStack(TinkersAddons.modItems.materials, 1, 0), new Object[] { "MMM", "MEM", "MMM", 'M', Blocks.MOSSY_COBBLESTONE, 'E', Items.BOOK });
-		}
-		else if (TinkersAddons.modConfig.autoRepairRecipeType == 2)
-		{
-			CraftingManager.getInstance().getRecipeList().add(new ModRecipeAmelioration());
-			RecipeSorter.register(Lib.MODID + ":Amelioration", ModRecipeAmelioration.class, Category.SHAPED, "");
-		}
 	}
 
 	public void registerBonusModRecipes()
 	{
+		if (TinkersAddons.modConfig.enableAmelioration)
+		{
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TinkersAddons.modItems.materials, 1, 0), new Object[] { new ItemStack(TinkerCommons.materials, 1, 19), new ItemStack(TinkerCommons.materials, 1, 19), new ItemStack(TinkerCommons.materials, 1, 19), Items.BOOK }));
+		}
 		if (TinkersAddons.modConfig.enableExtraModifierLvl1)
 		{
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TinkersAddons.modItems.materials, 1, 1), "gemDiamond", "blockGold"));

@@ -2,7 +2,6 @@ package com.oitsjustjose.tinkers_addons.items;
 
 import java.util.List;
 
-import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,7 +28,7 @@ public class ItemModMaterial extends Item
 	@Override
 	public boolean hasEffect(ItemStack itemstack)
 	{
-		return (itemstack.getItemDamage() == 0 && TinkersAddons.modConfig.autoRepairRecipeType == 2) ? true : itemstack.getItemDamage() == 4 ? false : itemstack.getItemDamage() >= 2 ? true : false;
+		return itemstack.getItemDamage() == 0 ? true : itemstack.getItemDamage() == 4 ? false : itemstack.getItemDamage() >= 2 ? true : false;
 	}
 
 	@Override

@@ -14,10 +14,9 @@ public class LibModifiers
 	public Modifier extra_modifier_lvl3;
 	public Modifier extra_modifier_lvl4;
 
-
 	public LibModifiers()
 	{
-		if (TinkersAddons.modConfig.autoRepairRecipeType > 0)
+		if (TinkersAddons.modConfig.enableAmelioration)
 		{
 			auto_repair = new ModAutoRepair();
 		}
@@ -33,7 +32,7 @@ public class LibModifiers
 		{
 			extra_modifier_lvl3 = new ModExtraModifier(3);
 		}
-		if(TinkersAddons.modConfig.enableExtraModifierLvl4)
+		if (TinkersAddons.modConfig.enableExtraModifierLvl4)
 		{
 			extra_modifier_lvl4 = new ModExtraModifier(4);
 		}

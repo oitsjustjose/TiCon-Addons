@@ -11,7 +11,7 @@ public class Config
 {
 	public Configuration config;
 
-	public int autoRepairRecipeType;
+	public boolean enableAmelioration;
 	public boolean enableExtraModifierLvl1;
 	public boolean enableExtraModifierLvl2;
 	public boolean enableExtraModifierLvl3;
@@ -27,10 +27,10 @@ public class Config
 	{
 		Property property;
 
-		property = config.get(Configuration.CATEGORY_GENERAL, "Auto-Repair Recipe Type", 2).setRequiresMcRestart(true);
-		property.setComment("Allows you to modify the auto-repair recipe. 0 disables the feature, 1 enables the easier recipe, 2 enables a harder one.");
-		autoRepairRecipeType = property.getInt();
-
+		property = config.get(Configuration.CATEGORY_GENERAL, "Enable Amelioration Kit mod for tools", true).setRequiresMcRestart(true);
+		property.setComment("Amelioration Kits are the method of getting Pre-TiCon 2 auto-repair");
+		enableAmelioration = property.getBoolean();
+		
 		property = config.get(Configuration.CATEGORY_GENERAL, "Enable 1st bonus modifier mod for tools", true).setRequiresMcRestart(true);
 		property.setComment("Re-adds the diamond + gold block recipe to increase modifiers on a tool if enabled");
 		enableExtraModifierLvl1 = property.getBoolean();
