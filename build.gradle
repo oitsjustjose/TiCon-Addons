@@ -14,33 +14,33 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 repositories {
   maven {
-    url "http://dvs1.progwml6.com/files/maven"
+    url = "http://dvs1.progwml6.com/files/maven"
   }
 }
 
-version = "1.0.4"
+version = mod_version
 group= "com.oitsjustjose.tinkers_addons"
 archivesBaseName = "Tinkers' Addons-1.10.x"
 
 minecraft {
-    version = "1.10.2-12.18.2.2125"
+    version = "${minecraft_version}-${forge_version}"
 
 	if (file('../run').exists()){
 		runDir = "../run"
 	} else {
 		runDir = "run"
-	}    
+	}
     useDepAts = true
-	replaceIn "lib/Lib.java"
-    replace "@VERSION@", project.version
-	
+    replaceIn "lib/Lib.java"
+    replace "@VERSION@", mod_version
+
     mappings = "snapshot_20160518"
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.10.2:3.7.5.227"
-    deobfCompile "slimeknights.mantle:Mantle:1.10-0.10.3.jenkins158"
-    deobfCompile "slimeknights:TConstruct:1.10-2.3.3a.jenkins289"
+	deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
+    deobfCompile "slimeknights.mantle:Mantle:1.10-${mantle_version}"
+    deobfCompile "slimeknights:TConstruct:1.10-${ticon_version}"
 }
 
 task deobfJar(type: Jar) {
@@ -63,7 +63,7 @@ processResources
         include 'mcmod.info'
 		expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
