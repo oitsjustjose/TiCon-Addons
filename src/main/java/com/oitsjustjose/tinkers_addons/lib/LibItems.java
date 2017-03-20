@@ -1,6 +1,6 @@
 package com.oitsjustjose.tinkers_addons.lib;
 
-import com.oitsjustjose.tinkers_addons.items.ItemModMaterial;
+import com.oitsjustjose.tinkers_addons.items.ItemModifier;
 
 import net.minecraft.item.Item;
 
@@ -10,6 +10,6 @@ public class LibItems
 
 	public LibItems()
 	{
-		materials = new ItemModMaterial();
+		materials = new ItemModifier();
 	}
 }

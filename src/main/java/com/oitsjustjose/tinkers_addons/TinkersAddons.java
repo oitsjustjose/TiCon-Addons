@@ -7,7 +7,7 @@ import com.oitsjustjose.tinkers_addons.lib.LibModifiers;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
 import com.oitsjustjose.tinkers_addons.util.ClientProxy;
 import com.oitsjustjose.tinkers_addons.util.CommonProxy;
-import com.oitsjustjose.tinkers_addons.util.ModRecipes;
+import com.oitsjustjose.tinkers_addons.util.Recipes;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -29,7 +29,7 @@ public class TinkersAddons
 	public static Config modConfig;
 	public static LibItems modItems;
 	public static LibModifiers modModifiers;
-	public ModRecipes recipes;
+	public Recipes recipes;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -55,6 +55,6 @@ public class TinkersAddons
 	{
 		if (event.getSide().isClient())
 			ClientProxy.init();
-		recipes = new ModRecipes();
+		recipes = new Recipes();
 	}
 }

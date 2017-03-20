@@ -1,3 +1,9 @@
+1.0.5:
+* Added: Modifier Item Tooltips
+* Changed: New Textures!!
+* Changed: New Recipes (No, I'm not adding a config option, CraftTweaker is an option!)
+* Changed: Item Names. Functionality is identical.
+
 1.0.4:
 * Changed: Recipe for Amelioration Kit again
 * Added: Tier IV Bonus Modifier
@@ -6,7 +12,7 @@
 * Changed: Auto-Repair is now Amelioration (a synonym for "improving"). The mechanics work the same, but recipe has changed
 * Changed: Textures for all items + proper 1.9.x+ model support
 * Changed: "Officially" supporting 1.10.x+, but also works on 1.9.4 :)
-* Removed: Moss Ball in place for the Amelioration Kit. 
+* Removed: Moss Ball in place for the Amelioration Kit.
 * NOTE: Working on a JEI plugin. Until then, to craft the Amelioration Kit with default recipe, do such:
 
 [M] [M] [M]
