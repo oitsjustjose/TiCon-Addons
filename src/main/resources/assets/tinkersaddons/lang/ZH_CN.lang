@@ -1,0 +1,19 @@
+#Items
+item.TinkersAddons.AMELIORATION_TOME.name=修复之书
+item.TinkersAddons.AMELIORATION_TOME.description=§2给与自动修复§r
+item.TinkersAddons.IRON_TOOLKIT.name=铁质工具包
+item.TinkersAddons.IRON_TOOLKIT.description=§3给予额外强化次数§r
+item.TinkersAddons.GOLD_TOOLKIT.name=黄金工具包
+item.TinkersAddons.GOLD_TOOLKIT.description=§3给予额外强化次数§r
+item.TinkersAddons.DIAMOND_TOOLKIT.name=钻石工具包
+item.TinkersAddons.DIAMOND_TOOLKIT.description=§3给予额外强化次数§r
+item.TinkersAddons.ENDER_TOOLKIT.name=末影工具包t
+item.TinkersAddons.ENDER_TOOLKIT.description=§3给予额外强化次数§r
+
+#Modifiers
+modifier.auto-repair.name=自动修复
+modifier.bonus-modifier_1.name=强化工具包
+modifier.bonus-modifier_2.name=强化工具包
+modifier.bonus-modifier_3.name=强化工具包
+modifier.bonus-modifier_4.name=强化工具包
+modifier.auto-repair.desc=§o自动修复就像以前的日子 §r\n你没有意识到你错过了这个，是吗?
