@@ -1,6 +1,7 @@
 package com.oitsjustjose.tinkers_addons.modifiers;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
@@ -9,21 +10,23 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.mantle.util.RecipeMatch.Match;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-public class ModAutoRepair extends Modifier
+public class ModAutoRepair extends ToolModifier
 {
 	public ModAutoRepair()
 	{
-		super("auto-repair");
+		super("auto-repair", 0x2CA401);
 		this.addAspects(new ModifierAspect.LevelAspect(this, 5), new ModifierAspect.DataAspect(this, 0x2CA401), ModifierAspect.freeModifier);
 		this.addItem(new ItemStack(TinkersAddons.modItems.materials, 1, 0), 1, 1);
 	}
@@ -95,5 +98,11 @@ public class ModAutoRepair extends Modifier
 				return 12500 + rand;
 
 		return 15000 + rand;
+	}
+
+	@Override
+	public Optional<Match> matches(NonNullList<ItemStack> stacks)
+	{
+		return null;
 	}
 }

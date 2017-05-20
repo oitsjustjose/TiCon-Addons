@@ -17,24 +17,19 @@ public class LibModifiers
 	public LibModifiers()
 	{
 		if (TinkersAddons.modConfig.enableAmelioration)
-		{
 			auto_repair = new ModAutoRepair();
-		}
+
 		if (TinkersAddons.modConfig.enableExtraModifierLvl1)
-		{
 			extra_modifier_lvl1 = new ModExtraModifier(1);
-		}
+
 		if (TinkersAddons.modConfig.enableExtraModifierLvl2)
-		{
 			extra_modifier_lvl2 = new ModExtraModifier(2);
-		}
+
 		if (TinkersAddons.modConfig.enableExtraModifierLvl3)
-		{
 			extra_modifier_lvl3 = new ModExtraModifier(3);
-		}
+
 		if (TinkersAddons.modConfig.enableExtraModifierLvl4)
-		{
 			extra_modifier_lvl4 = new ModExtraModifier(4);
-		}
+
 	}
 }

@@ -1,12 +1,21 @@
 package com.oitsjustjose.tinkers_addons.util;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+
+/**
+ * @author oitsjustjose
+ *
+ *         Mostly a dummy class - not really used for anything in this mod's case
+ */
+
 public class CommonProxy
 {
-	public static void preInit()
+	public void register(Item item)
 	{
-	};
+	}
 
-	public static void init()
+	public void register(Block block)
 	{
-	};
+	}
 }
