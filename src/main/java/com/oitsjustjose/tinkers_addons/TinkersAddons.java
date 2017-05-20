@@ -5,7 +5,7 @@ import com.oitsjustjose.tinkers_addons.lib.Lib;
 import com.oitsjustjose.tinkers_addons.lib.LibItems;
 import com.oitsjustjose.tinkers_addons.lib.LibModifiers;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
-import com.oitsjustjose.tinkers_addons.util.CommonProxy;
+import com.oitsjustjose.tinkers_addons.proxy.CommonProxy;
 import com.oitsjustjose.tinkers_addons.util.Recipes;
 
 import net.minecraft.item.Item;
@@ -52,9 +52,8 @@ public class TinkersAddons
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		if (event.getSide().isClient())
-			for (Item i : Lib.MOD_ITEMS)
-				proxy.register(i);
+		for (Item i : Lib.MOD_ITEMS)
+			proxy.register(i);
 		recipes = new Recipes();
 	}
 }

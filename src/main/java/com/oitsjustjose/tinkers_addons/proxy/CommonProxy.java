@@ -1,4 +1,4 @@
-package com.oitsjustjose.tinkers_addons.util;
+package com.oitsjustjose.tinkers_addons.proxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

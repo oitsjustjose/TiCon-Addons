@@ -1,4 +1,4 @@
-package com.oitsjustjose.tinkers_addons.util;
+package com.oitsjustjose.tinkers_addons.proxy;
 
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
@@ -14,37 +14,33 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.client.model.ModifierModelLoader;
 
 public class ClientProxy extends CommonProxy
 {
-	static CreativeTabs tab = TinkerRegistry.tabParts;
-	static String MODID = Lib.MODID;
-	static ModifierModelLoader modifierLoader;
+	CreativeTabs tab;
+	String MODID = Lib.MODID;
 
 	/**
 	 * @param item
 	 *            The Item to register a model registry for. You still have to make the model file, but now MC will know where to look
 	 */
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void register(Item item)
 	{
+		tab = item.getCreativeTab();
 		int meta = 0;
 
 		NonNullList<ItemStack> subItems = NonNullList.create();
 		item.getSubItems(item, tab, subItems);
 		for (ItemStack sub : subItems)
 		{
-			String name = item.getUnlocalizedName(sub).substring(6).toLowerCase();
+			String name = item.getUnlocalizedName(sub).substring(MODID.length() + 6).toLowerCase();
 			ModelBakery.registerItemVariants(item, new ResourceLocation(MODID, name));
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, meta, new ModelResourceLocation(MODID + ":" + name, "inventory"));
 			meta++;
 		}
-
 	}
-
+	
 	/**
 	 * @param block
 	 *            The Item to register a model registry for. You still have to make the model file, but now MC will know where to look

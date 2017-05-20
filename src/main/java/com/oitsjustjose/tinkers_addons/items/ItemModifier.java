@@ -25,7 +25,9 @@ public class ItemModifier extends Item
 	{
 		this.setHasSubtypes(true);
 		this.setCreativeTab(TinkerRegistry.tabGeneral);
-		GameRegistry.register(this, new ResourceLocation(Lib.MODID.toLowerCase(), "modifier_item"));
+		this.setRegistryName(new ResourceLocation(Lib.MODID, "modifier_item"));
+		this.setUnlocalizedName(Lib.MODID + ".modifier_item");
+		GameRegistry.register(this);
 		Lib.MOD_ITEMS.add(this);
 	}
 
@@ -55,19 +57,19 @@ public class ItemModifier extends Item
 		switch (stack.getItemDamage())
 		{
 		case 0:
-			tooltip.add(I18n.translateToLocal("item.TinkersAddons.AMELIORATION_TOME.description"));
+			tooltip.add(I18n.translateToLocal("item.tinkersaddons.AMELIORATION_TOME.description"));
 			return;
 		case 1:
-			tooltip.add(I18n.translateToLocal("item.TinkersAddons.IRON_TOOLKIT.description"));
+			tooltip.add(I18n.translateToLocal("item.tinkersaddons.IRON_TOOLKIT.description"));
 			return;
 		case 2:
-			tooltip.add(I18n.translateToLocal("item.TinkersAddons.GOLD_TOOLKIT.description"));
+			tooltip.add(I18n.translateToLocal("item.tinkersaddons.GOLD_TOOLKIT.description"));
 			return;
 		case 3:
-			tooltip.add(I18n.translateToLocal("item.TinkersAddons.DIAMOND_TOOLKIT.description"));
+			tooltip.add(I18n.translateToLocal("item.tinkersaddons.DIAMOND_TOOLKIT.description"));
 			return;
 		case 4:
-			tooltip.add(I18n.translateToLocal("item.TinkersAddons.ENDER_TOOLKIT.description"));
+			tooltip.add(I18n.translateToLocal("item.tinkersaddons.ENDER_TOOLKIT.description"));
 			return;
 		}
 	}
