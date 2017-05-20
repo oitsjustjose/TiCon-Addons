@@ -1,13 +1,9 @@
 package com.oitsjustjose.tinkers_addons.modifiers;
 
-import java.util.Optional;
-
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.NonNullList;
-import slimeknights.mantle.util.RecipeMatch.Match;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -35,11 +31,5 @@ public class ModExtraModifier extends ToolModifier
 		data.modifiers++;
 
 		TagUtil.setToolTag(rootCompound, data.get());
-	}
-
-	@Override
-	public Optional<Match> matches(NonNullList<ItemStack> stacks)
-	{
-		return null;
 	}
 }

@@ -44,12 +44,6 @@ public class TinkersAddons
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-
-	}
-
-	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		for (Item i : Lib.MOD_ITEMS)

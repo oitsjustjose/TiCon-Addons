@@ -1,7 +1,6 @@
 package com.oitsjustjose.tinkers_addons.modifiers;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
@@ -10,12 +9,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.mantle.util.RecipeMatch.Match;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -53,11 +50,11 @@ public class ModAutoRepair extends ToolModifier
 		ArrayList<ItemStack> tinkersTools = new ArrayList<ItemStack>();
 		int autoRepairLevel;
 		for (ItemStack iterStack : player.inventory.mainInventory)
-			if (iterStack != null && iterStack.getItem() instanceof ToolCore)
+			if (!iterStack.isEmpty() && iterStack.getItem() instanceof ToolCore)
 				tinkersTools.add(iterStack);
 
 		// Works to include items held in the second hand
-		if (player.getHeldItemOffhand() != null && player.getHeldItemOffhand().getItem() instanceof ToolCore)
+		if (!player.getHeldItemOffhand().isEmpty() && player.getHeldItemOffhand().getItem() instanceof ToolCore)
 			tinkersTools.add(player.getHeldItemOffhand());
 
 		for (ItemStack iterStack : tinkersTools)
@@ -98,11 +95,5 @@ public class ModAutoRepair extends ToolModifier
 				return 12500 + rand;
 
 		return 15000 + rand;
-	}
-
-	@Override
-	public Optional<Match> matches(NonNullList<ItemStack> stacks)
-	{
-		return null;
 	}
 }
