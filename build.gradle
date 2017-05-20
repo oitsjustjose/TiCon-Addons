@@ -34,7 +34,7 @@ minecraft {
     replaceIn "lib/Lib.java"
     replace "@VERSION@", mod_version
 
-    mappings = "snapshot_20160518"
+    mappings = "${mappings_version}"
 }
 
 dependencies {
