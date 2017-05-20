@@ -20,7 +20,7 @@ repositories {
 
 version = mod_version
 group= "com.oitsjustjose.tinkers_addons"
-archivesBaseName = "Tinkers' Addons-1.10.x"
+archivesBaseName = "Tinkers' Addons-1.11.x"
 
 minecraft {
     version = "${minecraft_version}-${forge_version}"
@@ -39,8 +39,8 @@ minecraft {
 
 dependencies {
 	deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
-    deobfCompile "slimeknights.mantle:Mantle:1.10-${mantle_version}"
-    deobfCompile "slimeknights:TConstruct:1.10-${ticon_version}"
+    deobfCompile "slimeknights.mantle:Mantle:${mantle_version}"
+    deobfCompile "slimeknights:TConstruct:${ticon_version}"
 }
 
 task deobfJar(type: Jar) {
