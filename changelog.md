@@ -1,3 +1,6 @@
+1.0.6:
+* Fixed: Recipes being NBT insensitive.
+
 1.0.5:
 * Added: Modifier Item Tooltips
 * Changed: New Textures!!
