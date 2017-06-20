@@ -20,7 +20,7 @@ repositories {
 
 version = mod_version
 group= "com.oitsjustjose.tinkers_addons"
-archivesBaseName = "Tinkers' Addons-${forge_version}"
+archivesBaseName = "Tinkers' Addons-${minecraft_version}"
 
 minecraft {
     version = "${minecraft_version}-${forge_version}"
