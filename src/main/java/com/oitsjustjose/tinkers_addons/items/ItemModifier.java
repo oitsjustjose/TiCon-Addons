@@ -6,6 +6,7 @@ import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
 import com.oitsjustjose.tinkers_addons.util.ClientRegistry;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,11 +15,14 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.TinkerRegistry;
+
+import javax.annotation.Nullable;
 
 @SuppressWarnings("deprecation")
 public class ItemModifier extends Item
@@ -36,7 +40,7 @@ public class ItemModifier extends Item
     private void registerModels()
     {
         for (int i = 0; i < EnumType.values().length; i++)
-            TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i), new ResourceLocation(this.getRegistryName().toString() + "_" + EnumType.byMetadata(i).getName()), "inventory");
+            TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i), new ResourceLocation(Lib.MODID, EnumType.byMetadata(i).getName()), "inventory");
     }
 
     @Override
@@ -48,7 +52,7 @@ public class ItemModifier extends Item
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-        return stack.getItem().getRegistryName().toString().replaceAll(":", ".") + "." + EnumType.byMetadata(stack.getMetadata()).getName();
+        return Lib.MODID + "." + EnumType.byMetadata(stack.getMetadata()).getName();
     }
 
     @Override
@@ -57,30 +61,14 @@ public class ItemModifier extends Item
     {
         if (this.isInCreativeTab(tab))
             for (int i = 0; i < EnumType.values().length; i++)
-                items.add(new ItemStack(this));
+                items.add(new ItemStack(this, 1, i));
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-        switch (stack.getItemDamage())
-        {
-            case 0:
-                tooltip.add(I18n.translateToLocal("item.TinkersAddons.AMELIORATION_TOME.description"));
-                return;
-            case 1:
-                tooltip.add(I18n.translateToLocal("item.TinkersAddons.IRON_TOOLKIT.description"));
-                return;
-            case 2:
-                tooltip.add(I18n.translateToLocal("item.TinkersAddons.GOLD_TOOLKIT.description"));
-                return;
-            case 3:
-                tooltip.add(I18n.translateToLocal("item.TinkersAddons.DIAMOND_TOOLKIT.description"));
-                return;
-            case 4:
-                tooltip.add(I18n.translateToLocal("item.TinkersAddons.ENDER_TOOLKIT.description"));
-                return;
-        }
+        tooltip.add(I18n.translateToLocal(Lib.MODID + "." + EnumType.byMetadata(stack.getItemDamage()) + ".description"));
     }
 
     public enum EnumType implements IStringSerializable
