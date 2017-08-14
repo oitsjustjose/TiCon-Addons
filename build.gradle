@@ -34,13 +34,13 @@ minecraft {
     replaceIn "lib/Lib.java"
     replace "@VERSION@", mod_version
 
-    mappings = "snapshot_20160518"
+    mappings = "${mappings_version}"
 }
 
 dependencies {
 	deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
-    deobfCompile "slimeknights.mantle:Mantle:1.10-${mantle_version}"
-    deobfCompile "slimeknights:TConstruct:1.10-${ticon_version}"
+    deobfCompile "slimeknights.mantle:Mantle:1.12-${mantle_version}"
+    deobfCompile "slimeknights:TConstruct:1.12-${ticon_version}"
 }
 
 task deobfJar(type: Jar) {
