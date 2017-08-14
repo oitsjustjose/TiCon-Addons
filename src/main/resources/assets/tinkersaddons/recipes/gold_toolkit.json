@@ -10,15 +10,14 @@
       "type": "minecraft:item_nbt",
       "item": "tconstruct:large_plate",
       "data": 0,
-      "nbt": { "Material": "iron" }
+      "nbt": { "Material": "ardite" }
     },
     "I": {
-      "item": "tconstruct:metal",
-      "data": 4
+      "item": "minecraft:gold_block"
     }
   },
   "result": {
     "item": "tinkersaddons:modifier_item",
-    "data": 1
+    "data": 2
   }
 }
