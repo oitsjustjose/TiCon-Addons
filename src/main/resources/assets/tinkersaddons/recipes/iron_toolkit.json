@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PIP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "tconstruct:large_plate",
+      "data": 0,
+      "nbt": { "Material": "iron" }
+    },
+    "I": {
+      "item": "tconstruct:metal",
+      "data": 4
+    }
+  },
+  "result": {
+    "item": "tinkersaddons:modifier_item",
+    "data": 1
+  }
+}
