@@ -14,35 +14,36 @@ import net.minecraftforge.fml.client.config.GuiConfig;
 
 public class ConfigGUI extends GuiConfig
 {
-	public ConfigGUI(GuiScreen guiScreen)
-	{
-		super(guiScreen, new ConfigElement(TinkersAddons.modConfig.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), Lib.MODID, false, true, GuiConfig.getAbridgedConfigPath(TinkersAddons.modConfig.config.toString()));
-	}
+    public ConfigGUI(GuiScreen guiScreen)
+    {
+        super(guiScreen, new ConfigElement(TinkersAddons.modConfig.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), Lib.MODID, false, true, GuiConfig.getAbridgedConfigPath(TinkersAddons.modConfig.config.toString()));
+    }
 
-	public static class GUIFactory implements IModGuiFactory
-	{
-		@Override
-		public void initialize(Minecraft minecraftInstance)
-		{
 
-		}
+    public static class GUIFactory implements IModGuiFactory
+    {
+        @Override
+        public void initialize(Minecraft minecraftInstance)
+        {
 
-		@Override
-		public Class<? extends GuiScreen> mainConfigGuiClass()
-		{
-			return ConfigGUI.class;
-		}
+        }
 
-		@Override
-		public Set<RuntimeOptionCategoryElement> runtimeGuiCategories()
-		{
-			return null;
-		}
+        @Override
+        public Set<RuntimeOptionCategoryElement> runtimeGuiCategories()
+        {
+            return null;
+        }
 
-		@Override
-		public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element)
-		{
-			return null;
-		}
-	}
+        @Override
+        public boolean hasConfigGui()
+        {
+            return true;
+        }
+
+        @Override
+        public GuiScreen createConfigGui(GuiScreen parentScreen)
+        {
+            return new ConfigGUI(parentScreen);
+        }
+    }
 }

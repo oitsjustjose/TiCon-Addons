@@ -5,10 +5,8 @@ import com.oitsjustjose.tinkers_addons.lib.Lib;
 import com.oitsjustjose.tinkers_addons.lib.LibItems;
 import com.oitsjustjose.tinkers_addons.lib.LibModifiers;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
-import com.oitsjustjose.tinkers_addons.util.ClientProxy;
-import com.oitsjustjose.tinkers_addons.util.CommonProxy;
-import com.oitsjustjose.tinkers_addons.util.Recipes;
 
+import com.oitsjustjose.tinkers_addons.util.ClientRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -24,37 +22,22 @@ public class TinkersAddons
 	@Instance(Lib.MODID)
 	public static TinkersAddons instance;
 
-	@SidedProxy(clientSide = Lib.CLIENT_PROXY, serverSide = Lib.COMMON_PROXY, modId = Lib.MODID)
-	public static CommonProxy proxy;
 	public static Config modConfig;
 	public static LibItems modItems;
 	public static LibModifiers modModifiers;
-	public Recipes recipes;
+	public static ClientRegistry clientRegistry;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		CommonProxy.preInit();
-
 		modConfig = new Config(event.getSuggestedConfigurationFile());
 		modItems = new LibItems();
 		modModifiers = new LibModifiers();
+		clientRegistry = new ClientRegistry();
 
 		MinecraftForge.EVENT_BUS.register(modConfig);
 		MinecraftForge.EVENT_BUS.register(new ModAutoRepair());
+		MinecraftForge.EVENT_BUS.register(clientRegistry);
 	}
 
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
-		if (event.getSide().isClient())
-			ClientProxy.init();
-		recipes = new Recipes();
-	}
 }
