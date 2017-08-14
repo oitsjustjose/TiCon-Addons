@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)",  acceptedMinecraftVersions = "1.9.4")
+@Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, dependencies = "required-after:tconstruct@[1.12-2.8.0.5,);" + "required-after:mantle@[1.12-1.3.1.19,)")
 public class TinkersAddons
 {
 	@Instance(Lib.MODID)
@@ -31,13 +31,12 @@ public class TinkersAddons
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		modConfig = new Config(event.getSuggestedConfigurationFile());
+		MinecraftForge.EVENT_BUS.register(modConfig);
+		clientRegistry = new ClientRegistry();
+		MinecraftForge.EVENT_BUS.register(clientRegistry);
 		modItems = new LibItems();
 		modModifiers = new LibModifiers();
-		clientRegistry = new ClientRegistry();
-
-		MinecraftForge.EVENT_BUS.register(modConfig);
 		MinecraftForge.EVENT_BUS.register(new ModAutoRepair());
-		MinecraftForge.EVENT_BUS.register(clientRegistry);
 	}
 
 }

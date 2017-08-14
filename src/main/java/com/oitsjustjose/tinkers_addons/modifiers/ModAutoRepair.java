@@ -25,7 +25,7 @@ public class ModAutoRepair extends Modifier
 	{
 		super("auto-repair");
 		this.addAspects(new ModifierAspect.LevelAspect(this, 5), new ModifierAspect.DataAspect(this, 0x2CA401), ModifierAspect.freeModifier);
-		this.addItem(new ItemStack(TinkersAddons.modItems.materials, 1, 0), 1, 1);
+		this.addItem(new ItemStack(TinkersAddons.modItems.MODIFIERS, 1, 0), 1, 1);
 	}
 
 	@Override

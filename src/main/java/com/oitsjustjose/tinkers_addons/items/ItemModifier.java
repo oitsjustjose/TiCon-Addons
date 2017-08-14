@@ -10,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
@@ -22,21 +23,20 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 @SuppressWarnings("deprecation")
 public class ItemModifier extends Item
 {
-    private final String[] TYPES = new String[]{"AMELIORATION_TOME", "IRON_TOOLKIT", "GOLD_TOOLKIT", "DIAMOND_TOOLKIT", "ENDER_TOOLKIT"};
-
     public ItemModifier()
     {
         this.setHasSubtypes(true);
         this.setCreativeTab(TinkerRegistry.tabGeneral);
-        this.setRegistryName(new ResourceLocation(Lib.MODID.toLowerCase(), "modifier_item"));
+        this.setRegistryName(new ResourceLocation(Lib.MODID, "modifier_item"));
+        this.setUnlocalizedName(this.getRegistryName().toString().replaceAll(":", "."));
         ForgeRegistries.ITEMS.register(this);
         this.registerModels();
     }
 
     private void registerModels()
     {
-        for (int i = 0; i < this.TYPES.length; i++)
-            TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i), new ResourceLocation(this.getRegistryName().toString() + "_" + this.TYPES[i]), "inventory");
+        for (int i = 0; i < EnumType.values().length; i++)
+            TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i), new ResourceLocation(this.getRegistryName().toString() + "_" + EnumType.byMetadata(i).getName()), "inventory");
     }
 
     @Override
@@ -46,22 +46,18 @@ public class ItemModifier extends Item
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack)
+    public String getUnlocalizedName(ItemStack stack)
     {
-        return "item." + Lib.MODID + "." + TYPES[itemStack.getItemDamage()];
+        return stack.getItem().getRegistryName().toString().replaceAll(":", ".") + "." + EnumType.byMetadata(stack.getMetadata()).getName();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
     {
-        for (int i = 0; i < TYPES.length; i++)
-        {
-            if (this.isInCreativeTab(tab))
-            {
+        if (this.isInCreativeTab(tab))
+            for (int i = 0; i < EnumType.values().length; i++)
                 items.add(new ItemStack(this));
-            }
-        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -84,6 +80,60 @@ public class ItemModifier extends Item
             case 4:
                 tooltip.add(I18n.translateToLocal("item.TinkersAddons.ENDER_TOOLKIT.description"));
                 return;
+        }
+    }
+
+    public enum EnumType implements IStringSerializable
+    {
+        AMELIORATION_TOME(0, "amelioration_tome"),
+        IRON_TOOLKIT(1, "iron_toolkit"),
+        GOLD_TOOLKIT(2, "gold_toolkit"),
+        DIAMOND_TOOLKIT(3, "diamond_toolkit"),
+        ENDER_TOOLKIT(4, "ender_toolkit");
+
+        private static final EnumType[] META_LOOKUP = new EnumType[values().length];
+        private final int meta;
+        private final String serializedName;
+        private final String unlocalizedName;
+
+        EnumType(int meta, String name)
+        {
+            this.meta = meta;
+            this.serializedName = name;
+            this.unlocalizedName = name;
+        }
+
+        public int getMetadata()
+        {
+            return this.meta;
+        }
+
+        public String toString()
+        {
+            return this.unlocalizedName;
+        }
+
+        public static EnumType byMetadata(int meta)
+        {
+            if (meta < 0 || meta >= META_LOOKUP.length)
+            {
+                meta = 0;
+            }
+
+            return META_LOOKUP[meta];
+        }
+
+        public String getName()
+        {
+            return this.serializedName;
+        }
+
+        static
+        {
+            for (EnumType type : values())
+            {
+                META_LOOKUP[type.getMetadata()] = type;
+            }
         }
     }
 }

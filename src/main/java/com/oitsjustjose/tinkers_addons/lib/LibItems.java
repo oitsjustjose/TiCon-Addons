@@ -6,10 +6,10 @@ import net.minecraft.item.Item;
 
 public class LibItems
 {
-	public Item materials;
+	public Item MODIFIERS;
 
 	public LibItems()
 	{
-		materials = new ItemModifier();
+		MODIFIERS = new ItemModifier();
 	}
 }
