@@ -1,10 +1,7 @@
 package com.oitsjustjose.tinkers_addons.modifiers;
 
-import java.util.ArrayList;
-
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,6 +16,8 @@ import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+
+import java.util.ArrayList;
 
 public class ModAutoRepair extends Modifier
 {
@@ -46,19 +45,27 @@ public class ModAutoRepair extends Modifier
     public void onUpdate(PlayerEvent event)
     {
         if (event.getEntityPlayer() == null)
+        {
             return;
+        }
 
         EntityPlayer player = event.getEntityPlayer();
         ArrayList<ItemStack> tinkersTools = new ArrayList<ItemStack>();
         int autoRepairLevel;
         for (ItemStack iterStack : player.inventory.mainInventory)
+        {
             if (iterStack != null && iterStack.getItem() instanceof ToolCore)
+            {
                 tinkersTools.add(iterStack);
+            }
+        }
 
         // Works to include items held in the second hand
         if (player.getHeldItemOffhand() != null && player.getHeldItemOffhand().getItem() instanceof ToolCore)
+        {
             tinkersTools.add(player.getHeldItemOffhand());
-
+        }
+        
         for (ItemStack iterStack : tinkersTools)
         {
             autoRepairLevel = 0;
@@ -91,10 +98,16 @@ public class ModAutoRepair extends Modifier
         World world = player.getEntityWorld();
         int rand = world.rand.nextInt(999);
         if (player.dimension == -1)
+        {
             return 10000 + rand;
+        }
         if (world.canSeeSky(player.getPosition()) && !world.isRaining())
+        {
             if ((world.getWorldTime() % 24000) >= 0 && (world.getWorldTime() % 24000) <= 13000)
+            {
                 return 12500 + rand;
+            }
+        }
 
         return 15000 + rand;
     }

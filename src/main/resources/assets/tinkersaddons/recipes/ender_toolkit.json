@@ -10,7 +10,9 @@
       "type": "minecraft:item_nbt",
       "item": "tconstruct:large_plate",
       "data": 0,
-      "nbt": { "Material": "obsidian" }
+      "nbt": {
+        "Material": "obsidian"
+      }
     },
     "I": {
       "item": "minecraft:ender_pearl"

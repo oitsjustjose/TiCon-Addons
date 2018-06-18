@@ -10,7 +10,9 @@
       "type": "minecraft:item_nbt",
       "item": "tconstruct:large_plate",
       "data": 0,
-      "nbt": { "Material": "prismarine" }
+      "nbt": {
+        "Material": "prismarine"
+      }
     },
     "I": {
       "item": "minecraft:diamond_block"

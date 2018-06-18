@@ -10,7 +10,9 @@
       "type": "minecraft:item_nbt",
       "item": "tconstruct:large_plate",
       "data": 0,
-      "nbt": { "Material": "ardite" }
+      "nbt": {
+        "Material": "ardite"
+      }
     },
     "I": {
       "item": "minecraft:gold_block"

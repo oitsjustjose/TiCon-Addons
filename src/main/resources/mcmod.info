@@ -1,16 +1,18 @@
 [
-{
-  "modid": "TinkersAddons",
-  "name": "Tinkers' Addons",
-  "description": "Adding back old modifiers to Tinkers' Construct 2.0",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["oitsjustjose"],
-  "credits": "",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "TinkersAddons",
+    "name": "Tinkers' Addons",
+    "description": "Adding back old modifiers to Tinkers' Construct 2.0",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "oitsjustjose"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

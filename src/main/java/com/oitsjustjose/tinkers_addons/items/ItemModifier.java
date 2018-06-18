@@ -1,14 +1,9 @@
 package com.oitsjustjose.tinkers_addons.items;
 
-import java.util.List;
-
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
-
-import com.oitsjustjose.tinkers_addons.util.ClientRegistry;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
@@ -17,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.TinkerRegistry;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class ItemModifier extends Item
@@ -40,7 +35,9 @@ public class ItemModifier extends Item
     private void registerModels()
     {
         for (int i = 0; i < EnumType.values().length; i++)
+        {
             TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i), new ResourceLocation(Lib.MODID, EnumType.byMetadata(i).getName()), "inventory");
+        }
     }
 
     @Override
@@ -60,8 +57,12 @@ public class ItemModifier extends Item
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
     {
         if (this.isInCreativeTab(tab))
+        {
             for (int i = 0; i < EnumType.values().length; i++)
+            {
                 items.add(new ItemStack(this, 1, i));
+            }
+        }
     }
 
     @Override
@@ -80,6 +81,15 @@ public class ItemModifier extends Item
         ENDER_TOOLKIT(4, "ender_toolkit");
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
+
+        static
+        {
+            for (EnumType type : values())
+            {
+                META_LOOKUP[type.getMetadata()] = type;
+            }
+        }
+
         private final int meta;
         private final String serializedName;
         private final String unlocalizedName;
@@ -89,16 +99,6 @@ public class ItemModifier extends Item
             this.meta = meta;
             this.serializedName = name;
             this.unlocalizedName = name;
-        }
-
-        public int getMetadata()
-        {
-            return this.meta;
-        }
-
-        public String toString()
-        {
-            return this.unlocalizedName;
         }
 
         public static EnumType byMetadata(int meta)
@@ -111,17 +111,19 @@ public class ItemModifier extends Item
             return META_LOOKUP[meta];
         }
 
+        public int getMetadata()
+        {
+            return this.meta;
+        }
+
+        public String toString()
+        {
+            return this.unlocalizedName;
+        }
+
         public String getName()
         {
             return this.serializedName;
-        }
-
-        static
-        {
-            for (EnumType type : values())
-            {
-                META_LOOKUP[type.getMetadata()] = type;
-            }
         }
     }
 }

@@ -37,7 +37,7 @@ minecraft {
 dependencies {
 	deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
     deobfCompile "slimeknights.mantle:Mantle:1.12-${mantle_version}"
-    deobfCompile "slimeknights:TConstruct:1.12-${ticon_version}"
+    deobfCompile "slimeknights:TConstruct:${minecraft_version}-${ticon_version}"
 }
 
 task deobfJar(type: Jar) {

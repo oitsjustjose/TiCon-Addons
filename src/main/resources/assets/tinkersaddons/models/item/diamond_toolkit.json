@@ -1,6 +1,6 @@
 {
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "tinkersaddons:items/diamond_toolkit"
-    }
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "tinkersaddons:items/diamond_toolkit"
+  }
 }

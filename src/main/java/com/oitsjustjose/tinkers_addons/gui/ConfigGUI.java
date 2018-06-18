@@ -1,16 +1,15 @@
 package com.oitsjustjose.tinkers_addons.gui;
 
-import java.util.Set;
-
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.IModGuiFactory;
 import net.minecraftforge.fml.client.config.GuiConfig;
+
+import java.util.Set;
 
 public class ConfigGUI extends GuiConfig
 {
