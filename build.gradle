@@ -13,6 +13,10 @@ repositories {
   maven {
     url = "http://dvs1.progwml6.com/files/maven"
   }
+  maven {
+    name = "CurseForge"
+    url = "https://minecraft.curseforge.com/api/maven/"
+  }
 }
 
 version = mod_version
@@ -38,6 +42,7 @@ dependencies {
 	deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
     deobfCompile "slimeknights.mantle:Mantle:1.12-${mantle_version}"
     deobfCompile "slimeknights:TConstruct:${minecraft_version}-${ticon_version}"
+    deobfCompile "constructs-armory:conarm:${conarm_version}"
 }
 
 task deobfJar(type: Jar) {
