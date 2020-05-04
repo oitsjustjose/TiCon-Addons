@@ -1,6 +1,7 @@
 package com.oitsjustjose.tinkers_addons.modifiers;
 
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.modifiers.Modifier;

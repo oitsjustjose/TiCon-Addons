@@ -1,6 +1,7 @@
 package com.oitsjustjose.tinkers_addons.util;
 
 import com.oitsjustjose.tinkers_addons.lib.Lib;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

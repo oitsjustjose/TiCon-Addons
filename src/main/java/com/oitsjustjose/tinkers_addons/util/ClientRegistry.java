@@ -1,5 +1,8 @@
 package com.oitsjustjose.tinkers_addons.util;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
@@ -10,12 +13,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ClientRegistry
 {
-    private HashMap<ItemStack, ModelResourceLocation> LOCATIONS = new HashMap();
+    private HashMap<ItemStack, ModelResourceLocation> LOCATIONS = new HashMap<>();
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
@@ -23,7 +23,8 @@ public class ClientRegistry
     {
         for (Map.Entry<ItemStack, ModelResourceLocation> entry : LOCATIONS.entrySet())
         {
-            ModelLoader.setCustomModelResourceLocation(entry.getKey().getItem(), entry.getKey().getItemDamage(), entry.getValue());
+            ModelLoader.setCustomModelResourceLocation(entry.getKey().getItem(), entry.getKey().getItemDamage(),
+                    entry.getValue());
         }
     }
 

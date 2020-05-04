@@ -1,7 +1,10 @@
 package com.oitsjustjose.tinkers_addons.modifiers;
 
+import java.util.ArrayList;
+
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,14 +20,13 @@ import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-import java.util.ArrayList;
-
 public class ModAutoRepair extends Modifier
 {
     public ModAutoRepair()
     {
         super("auto-repair");
-        this.addAspects(new ModifierAspect.LevelAspect(this, 5), new ModifierAspect.DataAspect(this, 0x2CA401), ModifierAspect.freeModifier);
+        this.addAspects(new ModifierAspect.LevelAspect(this, 5), new ModifierAspect.DataAspect(this, 0x2CA401),
+                ModifierAspect.freeModifier);
         this.addItem(new ItemStack(TinkersAddons.modItems.MODIFIERS, 1, 0), 1, 1);
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -65,7 +67,7 @@ public class ModAutoRepair extends Modifier
         {
             tinkersTools.add(player.getHeldItemOffhand());
         }
-        
+
         for (ItemStack iterStack : tinkersTools)
         {
             autoRepairLevel = 0;
@@ -85,7 +87,8 @@ public class ModAutoRepair extends Modifier
 
             long lastRepairTime = tag.getLong(Lib.TAG_AUTO_REPAIR_COOLDOWN);
 
-            if (autoRepairLevel > 0 && (System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player)) && !player.isSwingInProgress)
+            if (autoRepairLevel > 0 && (System.currentTimeMillis() - lastRepairTime) >= (getRepairCooldown(player))
+                    && !player.isSwingInProgress)
             {
                 ToolHelper.healTool(iterStack, autoRepairLevel, player);
                 tag.setLong(Lib.TAG_AUTO_REPAIR_COOLDOWN, System.currentTimeMillis());

@@ -3,6 +3,7 @@ package com.oitsjustjose.tinkers_addons.lib;
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
 import com.oitsjustjose.tinkers_addons.modifiers.ModExtraModifier;
+
 import slimeknights.tconstruct.library.modifiers.Modifier;
 
 public class LibModifiers

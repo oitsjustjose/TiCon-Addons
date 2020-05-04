@@ -1,7 +1,12 @@
 package com.oitsjustjose.tinkers_addons.items;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
+
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -15,9 +20,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.TinkerRegistry;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class ItemModifier extends Item
@@ -36,7 +38,8 @@ public class ItemModifier extends Item
     {
         for (int i = 0; i < EnumType.values().length; i++)
         {
-            TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i), new ResourceLocation(Lib.MODID, EnumType.byMetadata(i).getName()), "inventory");
+            TinkersAddons.clientRegistry.register(new ItemStack(this, 1, i),
+                    new ResourceLocation(Lib.MODID, EnumType.byMetadata(i).getName()), "inventory");
         }
     }
 
@@ -69,16 +72,14 @@ public class ItemModifier extends Item
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(I18n.translateToLocal(Lib.MODID + "." + EnumType.byMetadata(stack.getItemDamage()) + ".description"));
+        tooltip.add(
+                I18n.translateToLocal(Lib.MODID + "." + EnumType.byMetadata(stack.getItemDamage()) + ".description"));
     }
 
     public enum EnumType implements IStringSerializable
     {
-        AMELIORATION_TOME(0, "amelioration_tome"),
-        IRON_TOOLKIT(1, "iron_toolkit"),
-        GOLD_TOOLKIT(2, "gold_toolkit"),
-        DIAMOND_TOOLKIT(3, "diamond_toolkit"),
-        ENDER_TOOLKIT(4, "ender_toolkit");
+        AMELIORATION_TOME(0, "amelioration_tome"), IRON_TOOLKIT(1, "iron_toolkit"), GOLD_TOOLKIT(2, "gold_toolkit"),
+        DIAMOND_TOOLKIT(3, "diamond_toolkit"), ENDER_TOOLKIT(4, "ender_toolkit");
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
 
