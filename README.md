@@ -1,1 +1,3 @@
-TiCon Addons is a WIP addon mod to restore older modifiers to TiCon such as Auto-Repair and RF.. maybe even EU??
+# This Repo has Moved!
+
+This repository has been moved to a [new location!](https://git.oitsjustjose.com/me/TiCon-Addons)
